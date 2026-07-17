@@ -3,118 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cookie Текстовый Вкус</title>
+  <title>Cookie Text Magic</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero__content">
-        <span class="eyebrow">✨ Cookie Станция</span>
-        <h1>Трансформируйте тексты с ароматом Cookie</h1>
-        <p>Вставьте любой текст и пусть он превратится в сладкую Cookie-строку с множеством вариантов форматирования.</p>
-        <div class="hero__badges">
-          <span>🎨 Красивый дизайн</span>
-          <span>⚡ Мгновенный результат</span>
-          <span>📋 Быстрое копирование</span>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">🍪<br>Cookie</h1>
+        <p class="sidebar-subtitle">Text Magic</p>
+      </div>
+      
+      <div class="sidebar-section">
+        <label for="transformSelect" class="section-label">Transform</label>
+        <select id="transformSelect" class="sidebar-select">
+          <option value="none">Original</option>
+          <option value="uppercase">UPPERCASE</option>
+          <option value="lowercase">lowercase</option>
+          <option value="titlecase">Title Case</option>
+          <option value="reverse">Reverse</option>
+          <option value="sentencecase">Sentence</option>
+        </select>
+      </div>
+
+      <div class="sidebar-section">
+        <label class="section-label">Stats</label>
+        <div class="stats-box">
+          <div class="stat">
+            <span class="stat-label">Chars</span>
+            <span id="charCount" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Words</span>
+            <span id="wordCount" class="stat-value">0</span>
+          </div>
         </div>
       </div>
-      <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙 Тема</button>
-    </header>
 
-    <section class="card card--info card--featured card--top">
-      <h2>🍪 Особенности Cookie</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <span class="feature-icon">🎨</span>
-          <strong>Красивый дизайн</strong>
-          <p>Современный интерфейс с плавными анимациями</p>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">⚡</span>
-          <strong>Мгновенное превью</strong>
-          <p>Результат обновляется в реальном времени</p>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">🔄</span>
-          <strong>6 форматов</strong>
-          <p>Множество вариантов трансформации текста</p>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">📊</span>
-          <strong>Статистика</strong>
-          <p>Подсчет символов и слов автоматически</p>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">📋</span>
-          <strong>Быстрое копирование</strong>
-          <p>Одна кнопка и текст в буфере обмена</p>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">🌙</span>
-          <strong>Две темы</strong>
-          <p>Выбирайте удобный режим работы</p>
+      <div class="sidebar-section">
+        <label class="section-label">Actions</label>
+        <div class="action-buttons">
+          <button id="copyBtn" class="action-btn action-copy" title="Copy result">📋</button>
+          <button id="quickFillBtn" class="action-btn action-fill" title="Load example">⚡</button>
+          <button id="clearBtn" class="action-btn action-clear" title="Clear">🗑️</button>
+          <button id="sendBtn" class="action-btn action-send" title="Send to email">✉️</button>
         </div>
       </div>
-    </section>
 
-    <main class="grid-layout">
-      <section class="card card--panel card--large">
-        <div class="card__header">
-          <div>
-            <h2>📝 Трансформируйте свой текст</h2>
-            <p>Вводите текст и смотрите результаты в реальном времени</p>
-          </div>
-          <div class="stats" aria-live="polite">
-            <span id="charCount">0 символов</span>
-            <span id="wordCount">0 слов</span>
-          </div>
+      <button id="themeToggle" class="theme-btn">🌙</button>
+    </div>
+
+    <main class="main-content">
+      <div class="header-section">
+        <h2 class="main-title">Transform Your Text</h2>
+        <p class="main-subtitle">Enter text and watch it transform in real-time</p>
+      </div>
+
+      <textarea id="textInput" class="giant-textarea" placeholder="Type or paste your text here..."></textarea>
+
+      <div class="transforms-grid">
+        <div class="transform-card" data-format="none">
+          <span class="card-emoji">📝</span>
+          <h3>Original</h3>
+          <div id="output-none" class="card-content">Your original text</div>
         </div>
 
-        <textarea id="textInput" placeholder="Напишите здесь свой текст... 🍪" rows="10"></textarea>
-
-        <div class="panels-row">
-          <div class="transform-panel">
-            <label for="transformSelect">✨ Выберите формат</label>
-            <select id="transformSelect">
-              <option value="none">Оставить как есть</option>
-              <option value="uppercase">ВСЕ ПРОПИСНЫЕ</option>
-              <option value="lowercase">все строчные</option>
-              <option value="titlecase">Заглавные Каждого Слова</option>
-              <option value="reverse">Текст наоборот</option>
-              <option value="sentencecase">Предложение С Заглавной</option>
-            </select>
-          </div>
+        <div class="transform-card" data-format="uppercase">
+          <span class="card-emoji">⬆️</span>
+          <h3>UPPERCASE</h3>
+          <div id="output-uppercase" class="card-content">TEXT IN CAPS</div>
         </div>
 
-        <div class="control-panel">
-          <button id="submitBtn" class="btn btn-primary btn-large">🚀 Трансформировать</button>
-          <button id="copyBtn" class="btn btn-secondary btn-large">📋 Копировать результат</button>
-          <button id="quickFillBtn" class="btn btn-secondary">⚡ Пример</button>
-          <button id="clearBtn" class="btn btn-tertiary">🗑️ Очистить</button>
+        <div class="transform-card" data-format="lowercase">
+          <span class="card-emoji">⬇️</span>
+          <h3>lowercase</h3>
+          <div id="output-lowercase" class="card-content">text in lowercase</div>
         </div>
-      </section>
 
-      <section class="card card--result card--featured card--side">
-        <div class="card__header">
-          <div>
-            <h2>✨ Результат</h2>
-            <p>Live Preview</p>
-          </div>
-          <span class="badge">🔄 Real-time</span>
+        <div class="transform-card" data-format="titlecase">
+          <span class="card-emoji">📌</span>
+          <h3>Title Case</h3>
+          <div id="output-titlecase" class="card-content">Text In Title Case</div>
         </div>
-        <div id="output" class="output">Начните печатать текст...</div>
-        <div class="output-actions">
-          <span class="output-label">Ваш результат готов!</span>
+
+        <div class="transform-card" data-format="reverse">
+          <span class="card-emoji">🔄</span>
+          <h3>Reverse</h3>
+          <div id="output-reverse" class="card-content">txet desrever</div>
         </div>
-      </section>
+
+        <div class="transform-card" data-format="sentencecase">
+          <span class="card-emoji">💬</span>
+          <h3>Sentence</h3>
+          <div id="output-sentencecase" class="card-content">Sentence case text</div>
+        </div>
+      </div>
     </main>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
