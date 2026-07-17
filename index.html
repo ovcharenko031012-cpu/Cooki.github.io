@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Текстовый Вкус</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__content">
+        <span class="eyebrow">✨ Cookie Станция</span>
+        <h1>Трансформируйте тексты с ароматом Cookie</h1>
+        <p>Вставьте любой текст и пусть он превратится в сладкую Cookie-строку с множеством вариантов форматирования.</p>
+        <div class="hero__badges">
+          <span>🎨 Красивый дизайн</span>
+          <span>⚡ Мгновенный результат</span>
+          <span>📋 Быстрое копирование</span>
+        </div>
+      </div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Переключить тему">🌙 Тема</button>
+    </header>
+
+    <section class="card card--info card--featured card--top">
+      <h2>🍪 Особенности Cookie</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <span class="feature-icon">🎨</span>
+          <strong>Красивый дизайн</strong>
+          <p>Современный интерфейс с плавными анимациями</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <strong>Мгновенное превью</strong>
+          <p>Результат обновляется в реальном времени</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔄</span>
+          <strong>6 форматов</strong>
+          <p>Множество вариантов трансформации текста</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📊</span>
+          <strong>Статистика</strong>
+          <p>Подсчет символов и слов автоматически</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📋</span>
+          <strong>Быстрое копирование</strong>
+          <p>Одна кнопка и текст в буфере обмена</p>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🌙</span>
+          <strong>Две темы</strong>
+          <p>Выбирайте удобный режим работы</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid-layout">
+      <section class="card card--panel card--large">
+        <div class="card__header">
+          <div>
+            <h2>📝 Трансформируйте свой текст</h2>
+            <p>Вводите текст и смотрите результаты в реальном времени</p>
+          </div>
+          <div class="stats" aria-live="polite">
+            <span id="charCount">0 символов</span>
+            <span id="wordCount">0 слов</span>
+          </div>
+        </div>
+
+        <textarea id="textInput" placeholder="Напишите здесь свой текст... 🍪" rows="10"></textarea>
+
+        <div class="panels-row">
+          <div class="transform-panel">
+            <label for="transformSelect">✨ Выберите формат</label>
+            <select id="transformSelect">
+              <option value="none">Оставить как есть</option>
+              <option value="uppercase">ВСЕ ПРОПИСНЫЕ</option>
+              <option value="lowercase">все строчные</option>
+              <option value="titlecase">Заглавные Каждого Слова</option>
+              <option value="reverse">Текст наоборот</option>
+              <option value="sentencecase">Предложение С Заглавной</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-panel">
+          <button id="submitBtn" class="btn btn-primary btn-large">🚀 Трансформировать</button>
+          <button id="copyBtn" class="btn btn-secondary btn-large">📋 Копировать результат</button>
+          <button id="quickFillBtn" class="btn btn-secondary">⚡ Пример</button>
+          <button id="clearBtn" class="btn btn-tertiary">🗑️ Очистить</button>
+        </div>
+      </section>
+
+      <section class="card card--result card--featured card--side">
+        <div class="card__header">
+          <div>
+            <h2>✨ Результат</h2>
+            <p>Live Preview</p>
+          </div>
+          <span class="badge">🔄 Real-time</span>
+        </div>
+        <div id="output" class="output">Начните печатать текст...</div>
+        <div class="output-actions">
+          <span class="output-label">Ваш результат готов!</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
